@@ -7,9 +7,9 @@ spec:
   - name: nginx
     image: nginx
     resources:
-      requests:
+      requests: # soft limit
         memory: "64Mi"
-        cpu: "250m"
-      limits:
+        cpu: "100m"
+      limits: # hard limit
         memory: "128Mi"
         cpu: "150m"
