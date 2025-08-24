@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annotations
+  labels:
+    project: roboshop
+    component: mysql
+    tier: backend
+    environment: dev
+  annotations:
+    description: This is a sample pod for demonstrating annotations
+    jenkins: "http://jenkins.example.com/job/annotations"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
