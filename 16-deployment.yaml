@@ -1,29 +1,29 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata:
-  name: nginx-rs
-  #replica set labels
+  name: nginx-deployment
+  #deployment labels
   labels:
-    purpose: replicaset-demo
+    purpose: deployment-demo
     project: roboshop
     app: nginx
 spec:
   replicas: 3
-  # labels to create a replicaset
+  # labels to create a deployment
   selector:
     matchLabels:
-      purpose: replicaset-demo
+      purpose: deployment-demo
       project: roboshop
       app: nginx
   #pod definition
   template:
     metadata:
       labels:
-        purpose: replicaset-demo
+        purpose: deployment-demo
         project: roboshop
         app: nginx
     spec:
       containers:
       - name: nginx
-        image: nginx
-        #image: nginx:stable-perl
+        #image: nginx
+        image: nginx:stable-perl
