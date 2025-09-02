@@ -26,3 +26,20 @@ spec:
       containers:
       - name: nginx
         image: nginx:latest
+
+---
+apiVersion: v1
+kind: Service #service acts as load balancer between pods and also enables pod to pod communication
+metadata:
+  name: nginx-svc
+  labels:
+    purpose: deployment-demo
+spec:
+  selector:
+    purpose: deployment-demo
+    project: roboshop
+    environment: dev
+  ports:
+    - protocol: TCP
+      port: 80 # service port
+      targetPort: 80 # container port
